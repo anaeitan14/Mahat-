@@ -25,8 +25,14 @@ public class RabbitTest {
 			rabbits[i] = new Rabbit(name, carrot, kruv, brocolli);
 		}
 
-		double lowestAvg = rabbits[0].averageTime(), lowestTime = rabbits[0].getTimeCarrot();
-		int lowestAvgIndex = 0, lowestTimeIndex = 0;
+		firstMedal(rabbits);
+		secondMedal(rabbits);
+
+	}
+
+	public static void firstMedal(Rabbit[] rabbits) {
+		double lowestAvg = rabbits[0].averageTime();
+		int lowestAvgIndex = 0;
 
 		for (int i = 0; i < rabbits.length; i++) {
 			if (rabbits[i].averageTime() < lowestAvg) {
@@ -34,6 +40,13 @@ public class RabbitTest {
 				lowestAvgIndex = i;
 			}
 		}
+		System.out.println(
+				"The first medal goes to " + rabbits[lowestAvgIndex].getName() + " with an average of: " + lowestAvg);
+	}
+
+	public static void secondMedal(Rabbit[] rabbits) {
+		double lowestTime = rabbits[0].getTimeCarrot();
+		int lowestTimeIndex = 0;
 		for (int i = 0; i < rabbits.length; i++) {
 			if (rabbits[i].lowestTime() < lowestTime) {
 				lowestTime = rabbits[i].lowestTime();
@@ -41,9 +54,7 @@ public class RabbitTest {
 			}
 		}
 
-		System.out.println("The first medal goes to " + rabbits[lowestAvgIndex].getName() + " with an average of: "
-				+ rabbits[lowestAvgIndex].averageTime());
-		System.out.println("The second medal goes to " + rabbits[lowestTimeIndex].getName() + " with the lowest time of: "
-				+ rabbits[lowestTimeIndex].lowestTime());
+		System.out.println("The second medal goes to " + rabbits[lowestTimeIndex].getName()
+				+ " with the lowest time of: " + lowestTime);
 	}
 }

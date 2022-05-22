@@ -33,10 +33,6 @@ public class Rabbit {
 		return time[2];
 	}
 
-	public void setTime(double[] time) {
-		this.time = time;
-	}
-
 	public double lowestTime() {
 		double lowest = time[0];
 		for (int i = 0; i < time.length; i++) {
